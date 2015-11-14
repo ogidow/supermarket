@@ -10,6 +10,6 @@ class ItemDatabase
   end
 
   def find(name)
-    @items.find{|item| item.name == name}.name
+    @items.find{|item| item.name == name}
   end
 end

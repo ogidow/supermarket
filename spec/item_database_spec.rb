@@ -1,7 +1,7 @@
 require 'item'
 require 'item_database'
 
-Rspec.describe(ItemDatabase) do
+RSpec.describe(ItemDatabase) do
   describe "#find" do
     subject(:db) do
       db = ItemDatabase.new
@@ -9,9 +9,18 @@ Rspec.describe(ItemDatabase) do
       db
     end
 
-    it "retuns fond item" do
-      item = db.find("Apple")
-      expect(item.name).to eq("Apple")
+    context "matched parameter" do
+      it "success find name" do
+        item = db.find("Apple")
+        expect(item.name).to eq("Apple")
+      end
     end
+
+    context "not matched parameter" do
+      it "retrutn nil" do
+        expect(db.find("Orange")).to eq(nil)
+      end
+    end
+
   end
 end
