@@ -3,17 +3,15 @@ require 'item.rb'
 class Cart
 
   def initialize
-    @total = 0
-    @item = []
+    @items = []
   end
 
   def add(item)
-    @total += item.price
-    @item << item
+    @items << item
   end
 
   def total
-    @total
+    @items.inject(0){|sum, item| sum += item.price}
   end
 
-end 
+end
